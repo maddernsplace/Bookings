@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Business Job Manager</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Business Job Manager</h1>
+      <p>Book jobs, view them on a calendar, and navigate to site addresses.</p>
+    </header>
+
+    <main>
+      <section class="card">
+        <h2>Book a Job</h2>
+        <form id="jobForm">
+          <label>
+            Customer / Job Name
+            <input name="title" required placeholder="e.g. Smith - Plumbing repair" />
+          </label>
+          <label>
+            Date
+            <input type="date" name="date" required />
+          </label>
+          <label>
+            Time
+            <input type="time" name="time" required />
+          </label>
+          <label>
+            Address
+            <input name="address" required placeholder="123 Main St, Springfield" />
+          </label>
+          <label>
+            Notes
+            <textarea name="notes" rows="3" placeholder="Optional notes"></textarea>
+          </label>
+          <button type="submit">Save Job</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <div class="calendar-header">
+          <h2>Calendar</h2>
+          <div>
+            <button id="prevMonth" type="button">◀</button>
+            <span id="monthLabel"></span>
+            <button id="nextMonth" type="button">▶</button>
+          </div>
+        </div>
+        <div id="calendar" class="calendar-grid"></div>
+      </section>
+
+      <section class="card">
+        <div class="jobs-header">
+          <h2 id="jobsTitle">Jobs</h2>
+          <button id="clearFilter" type="button" class="ghost">Show All</button>
+        </div>
+        <ul id="jobsList" class="jobs-list"></ul>
+      </section>
+    </main>
+
+    <template id="jobItemTemplate">
+      <li class="job-item">
+        <div>
+          <strong class="job-title"></strong>
+          <div class="muted job-when"></div>
+          <div class="muted job-address"></div>
+          <div class="job-notes"></div>
+        </div>
+        <div class="actions">
+          <button class="nav-btn" type="button">Navigate</button>
+          <button class="delete-btn ghost" type="button">Delete</button>
+        </div>
+      </li>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
